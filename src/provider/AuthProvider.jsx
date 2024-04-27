@@ -91,6 +91,7 @@ const githubProvider = new GithubAuthProvider();
     logOut,
     setLoading
   };
+  
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

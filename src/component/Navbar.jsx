@@ -1,6 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import './navbar/navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 const Navbar = () => {
+
+
+const {user, logOut} = useContext(AuthContext)
+
+
+
   const navLinks = (
     <>
       <li className="mr-2 font-bold">
@@ -65,6 +73,12 @@ const Navbar = () => {
      
     </>
   );
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
+
+
+
   return (
     <div className="navbar bg-base-100  container mx-auto">
     <div className="navbar-start">
@@ -103,24 +117,22 @@ const Navbar = () => {
       <ul className="menu menu-horizontal px-1">{navLinks}</ul>
     </div>
     <div className="navbar-end">
-      
-        {/* <div className="flex items-center">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar mr-4 tooltip tooltip-bottom"
-            data-tip="user name"
-          >
-            <div className="rounded-full">
-              <img alt="my name for image" src="../assets/react.svg" />
-            </div>
+      {
+        user ?  <div className="flex items-center">
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn btn-ghost btn-circle avatar mr-4 tooltip tooltip-bottom"
+          data-tip={user.displayName}
+        >
+          <div className="rounded-full">
+            <img alt={user.displayName} src={user.photoURL} />
           </div>
-          <button className="btn btn-primary">
-            Logout
-          </button>
-        </div> */}
-     
-        <div className="flex items-center gap-2">
+        </div>
+        <button onClick={handleLogOut} className="btn btn-primary">
+          Logout
+        </button>
+      </div> : <div className="flex items-center gap-2">
           <Link to="/register">
             <p className="btn bg-[#80669d] text-white">Register</p>
           </Link>
@@ -129,6 +141,11 @@ const Navbar = () => {
             <p className="btn text-white  bg-[#dd7973]">Login</p>
            </Link>
          </div>
+      }
+      
+       
+     
+        
      
     </div>
   </div>

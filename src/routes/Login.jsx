@@ -1,13 +1,45 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+
+import {  toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+
+  const {LogIn , user} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
 const handleLogin = e =>{
   e.preventDefault();
   console.log('login successfully');
+
+  const form = new FormData(e.currentTarget);
+  const email = form.get("email");
+  const password = form.get("password");
+
+
+  console.log(email,password);
+
+
+  LogIn(email, password)
+  .then((result) => {
+    toast.success('successfully logged in to your account')
+    console.log(result.user);
+    navigate(location?.state ? location.state : "/");
+  })
+  .catch((error) => {
+    console.log(error);
+   
+  });
+  e.target.reset();
+
+
+
 }
 
-
+console.log(user?.displayName);
 
 
   return (

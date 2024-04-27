@@ -12,6 +12,9 @@ import Register from "./routes/Register";
 import Tourist_Spots from "./routes/Tourist_Spots";
 import Added_Spots from "./routes/Added_Spots";
 import MyList from "./routes/MyList";
+import AuthProvider from "./provider/AuthProvider";
+import { ToastContainer } from 'react-toastify';
+
 
 const router = createBrowserRouter([
   {
@@ -32,7 +35,8 @@ const router = createBrowserRouter([
       },
       {
         path:"/tourSpot",
-        element:<Tourist_Spots></Tourist_Spots>
+        element:<Tourist_Spots></Tourist_Spots>,
+        loader: () => fetch('http://localhost:5000/spot')
       },
       {
         path:"/addSpot",
@@ -48,6 +52,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <AuthProvider>
+
     <RouterProvider router={router} />
+    <ToastContainer />
+    </AuthProvider>
   </React.StrictMode>
 );

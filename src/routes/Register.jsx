@@ -1,18 +1,78 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEyeSlash,FaEye } from 'react-icons/fa';
+import { AuthContext } from "../provider/AuthProvider";
+import {  toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
+  const uppercaseRegex = /[A-Z]/;
+  const lowercaseRegex = /[a-z]/;
 
 const Register = () => {
 
   const [showPassword, setShowPassword] =useState(false);
+
+ const {registerUser,updateProfileInfo} = useContext(AuthContext)
 
 
 
 
   const handleRegister = e =>{
     e.preventDefault()
-    console.log('register');
+    const form = new FormData(e.currentTarget);
+    const name = form.get('name');
+    const email = form.get('email');
+    const password = form.get('password');
+    const photo = form.get('photo');
+
+
+    if(password.length <6){
+      return toast.error('Password must be at least 6 characters long.')
+     ;
+  
+    }
+
+    
+    if(!uppercaseRegex.test(password)){
+      return toast.error('Password must contain at least one uppercase letter.')
+      
+    }
+    if(!lowercaseRegex.test(password)){
+      return toast.error('Password must contain at least one lowercase letter.')
+     
+    }
+
+    console.log(name , email, password, photo);
+
+
+    registerUser(email,password)
+    .then(result =>{
+      toast.success("Successfully Registered")
+      console.log(result.user);
+      updateProfileInfo(name, photo)
+      .then()
+      .catch(error =>{
+        console.log(error);
+      })
+    })
+    .catch(error => {
+    
+      console.log(error);
+    })
+    e.target.reset();
+
+
+
+
   }
+
+
+
+
+
+
   return (
     <form
     data-aos-duration="2000"
