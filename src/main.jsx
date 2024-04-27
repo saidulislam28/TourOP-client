@@ -14,6 +14,7 @@ import Added_Spots from "./routes/Added_Spots";
 import MyList from "./routes/MyList";
 import AuthProvider from "./provider/AuthProvider";
 import { ToastContainer } from 'react-toastify';
+import ViewSpotDetails from "./component/ViewSpotDetails";
 
 
 const router = createBrowserRouter([
@@ -23,7 +24,8 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader: () => fetch('http://localhost:5000/spot')
       },
       {
         path:"/login",
@@ -45,6 +47,11 @@ const router = createBrowserRouter([
       {
         path:"/mylist",
         element:<MyList></MyList>
+      },
+      {
+        path:"/spot/:id",
+        element:<ViewSpotDetails></ViewSpotDetails>,
+        loader: () => fetch('http://localhost:5000/spot')
       },
     ]
   },

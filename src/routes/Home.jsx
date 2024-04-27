@@ -1,11 +1,29 @@
+import { useLoaderData } from "react-router-dom";
+import Banner from "../component/Banner";
+import SingleSpot from "../component/SingleSpot";
+
 
 
 const Home = () => {
 
 
+  const spots = useLoaderData();
+
+
   return (
     <div>
-      <h1>This is Home </h1>
+     
+      <Banner></Banner>
+      <h1 className="text-5xl">{spots.length}</h1>
+     <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+
+
+      {
+        spots.map(spot => <SingleSpot key={spot._id} spot={spot}></SingleSpot>)
+      }
+
+
+     </div>
     </div>
   );
 };

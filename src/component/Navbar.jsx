@@ -30,7 +30,7 @@ const {user, logOut} = useContext(AuthContext)
             background: isActive ? "#a881af" : "",
           })}
         >
-          Tourists Spot
+          All Tourists Spot
         </NavLink>
       </li>
       <li className="mr-2 font-bold">
