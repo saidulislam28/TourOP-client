@@ -8,7 +8,8 @@ const Home = () => {
 
 
   const spots = useLoaderData();
-
+const slicedSpot = spots.slice(0,6);
+console.log(slicedSpot);
 
   return (
     <div>
@@ -19,7 +20,7 @@ const Home = () => {
 
 
       {
-        spots.map(spot => <SingleSpot key={spot._id} spot={spot}></SingleSpot>)
+        slicedSpot.map(spot => <SingleSpot key={spot._id} spot={spot}></SingleSpot>)
       }
 
 

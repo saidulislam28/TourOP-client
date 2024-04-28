@@ -1,11 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import SingleSpot from "../component/SingleSpot";
+import AllDataCard from "../component/AllDataCard";
 
 const Tourist_Spots = () => {
   const spots = useLoaderData();
 
   return (
-    <div>
+    <div className="container mx-auto">
       <h1 className="text-6xl">this is all tourist {spots.length}</h1>
 
 
@@ -31,9 +32,11 @@ const Tourist_Spots = () => {
 
 
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {spots.map((spot) => (
-          <SingleSpot key={spot._id} spot={spot}></SingleSpot>
+          <AllDataCard key={spot._id}
+          spot={spot}
+          ></AllDataCard>
         ))}
       </div>
     </div>

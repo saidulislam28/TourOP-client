@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
-  const {LogIn , user} = useContext(AuthContext);
+  const {LogIn , user, googleLogin} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -38,6 +38,18 @@ const handleLogin = e =>{
 
 
 }
+const handleSocialLogin = provider => {
+  provider()
+  .then(result =>{
+    console.log(result.user);
+    toast("successfully logged in")
+    navigate(location?.state ? location.state : "/");
+  })
+  .catch(error =>{
+    toast.error("something went wrong")
+    console.log(error);
+  })
+} 
 
 console.log(user?.displayName);
 
@@ -94,6 +106,7 @@ console.log(user?.displayName);
           </div>
           <div className="flex justify-center space-x-4">
             <button
+            onClick={()=> handleSocialLogin(googleLogin)}
               aria-label="Log in with Google"
               className="p-3 rounded-sm text-black"
             >

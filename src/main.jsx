@@ -46,7 +46,8 @@ const router = createBrowserRouter([
       },
       {
         path:"/mylist",
-        element:<MyList></MyList>
+        element:<MyList></MyList>,
+        loader: () => fetch('http://localhost:5000/spot')
       },
       {
         path:"/spot/:id",
