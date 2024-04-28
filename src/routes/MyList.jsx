@@ -4,6 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteSweep } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const MyList = () => {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,40 @@ const MyList = () => {
   const mySpot = allspots.filter((spot) => spot.email === user.email);
 
   console.log(mySpot);
+
+
+
+  const handleDelete = spot =>{
+    const _id = spot._id;
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+       fetch(`http://localhost:5000/spot/${_id}`,{
+        method: 'DELETE'
+       })
+       .then(res => res.json())
+       .then(data =>{
+        console.log(data);
+        if(data.deletedCount > 0){
+         Swal.fire({
+          title: "Deleted!",
+          text: "Your added spot has been deleted.",
+          icon: "success"
+        });
+        }
+       })
+      }
+    });
+  }
 
   return (
     <div className="container mx-auto my-10">
@@ -45,20 +80,24 @@ const MyList = () => {
 
     <tbody>
       {
-        mySpot.map((spot, index) => <tr key={spot._id}>
+        mySpot.map((spot, index) => <tr key={spot._id}
+        
+        >
           <th>{index + 1}</th>
           <td>{spot.name}</td>
           <td>{spot.spotName}</td>
           <td>{spot.cost}</td>
           <td className="text-xl">
             <Link>
-            <FaEdit></FaEdit>
+           <button className="btn">
+           <FaEdit className="text-xl"></FaEdit>
+           </button>
             </Link>
           </td>
-          <td className="text-xl">
-            <Link>
-            <MdDeleteSweep className="text-red-500"></MdDeleteSweep>
-            </Link>
+          <td>
+            <button onClick={() =>handleDelete(spot)} className="btn">
+            <MdDeleteSweep  className="text-xl text-red-400"></MdDeleteSweep>
+            </button>
           
           </td>
           
