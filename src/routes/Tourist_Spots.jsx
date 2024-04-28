@@ -7,7 +7,7 @@ const Tourist_Spots = () => {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-6xl">this is all tourist {spots.length}</h1>
+      <h1 className=" text-2xl text-center lg:text-6xl">this is all tourist {spots.length}</h1>
 
 
 

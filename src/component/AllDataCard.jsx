@@ -5,7 +5,7 @@ const AllDataCard = ({ spot }) => {
   const { image, spotName, cost, visitors, travelTime, season } = spot;
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl border">
-      <figure className="w-64">
+      <figure className="p-2 lg:p-0 w-full lg:w-64">
         <img className="rounded-xl h-full" src={image} alt="no image found" />
       </figure>
       <div className="card-body">

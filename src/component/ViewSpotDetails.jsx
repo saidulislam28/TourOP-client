@@ -73,12 +73,11 @@ const ViewSpotDetails = () => {
         </div>
       </div>
 
-      <div className="container mx-auto flex items-center border border-green-400 rounded-xl">
+      <div className="container mx-auto flex items-center  rounded-xl">
         <p className="bg-gray-400 px-4 py-2 rounded-xl text-white font-semibold">Description</p>
 
-        <Marquee>
-          I can be a React component, multiple React components, or just some
-          text.
+        <Marquee className="bg-gray-300 rounded-r-xl">
+         <span className="mr-32">{description}</span>
         </Marquee>
       </div>
 
@@ -130,23 +129,20 @@ const ViewSpotDetails = () => {
               <div className="divider"></div>
             </div>
             <div className="flex items-center justify-between mt-4">
-              <a
-                rel="noopener noreferrer"
-                href="#"
+              <p
+               
                 className="hover:underline text-violet-500 dark:text-violet-600 text-xl"
               >
                 <span className="text-violet-800">Email</span> : {email}
-              </a>
+              </p>
               <div>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
+                <p
                   className="flex items-center"
                 >
                   <span className="hover:underline text-gray-400 dark:text-gray-600 text-2xl font-semibold text-violet-500">
                     {name}
                   </span>
-                </a>
+                </p>
               </div>
             </div>
           </div>
