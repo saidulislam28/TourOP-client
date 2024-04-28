@@ -12,7 +12,7 @@ const slicedSpot = spots.slice(0,6);
 console.log(slicedSpot);
 
   return (
-    <div>
+    <div className="container mx-auto">
      
       <Banner></Banner>
       <h1 className="text-5xl">{spots.length}</h1>

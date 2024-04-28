@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate } from "react-router-dom";
 import './navbar/navbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -45,8 +45,7 @@ const {user, logOut} = useContext(AuthContext)
           Add Tourists Spot
         </NavLink>
       </li>
-      
-         <li className="font-bold">
+      { user ?  <li className="font-bold">
         <NavLink
           to="/mylist"
           style={({ isActive }) => ({
@@ -56,7 +55,12 @@ const {user, logOut} = useContext(AuthContext)
         >
          My List
         </NavLink>
-      </li> 
+      </li> : Navigate('/')
+
+
+
+      }
+      
      
    
        {/* <li className="font-bold">

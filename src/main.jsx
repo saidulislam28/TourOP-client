@@ -16,6 +16,8 @@ import AuthProvider from "./provider/AuthProvider";
 import { ToastContainer } from 'react-toastify';
 import ViewSpotDetails from "./component/ViewSpotDetails";
 
+// import Update from "./component/Update";
+
 
 const router = createBrowserRouter([
   {
@@ -53,7 +55,14 @@ const router = createBrowserRouter([
         path:"/spot/:id",
         element:<ViewSpotDetails></ViewSpotDetails>,
         loader: () => fetch('http://localhost:5000/spot')
-      },
+      }
+      
+      // {
+      //   path: "updateSpot/:id",
+      //   element: <Update></Update>,
+      //   loader: ({params}) => fetch(`http://localhost:5000/spot/${params._id}`)
+        
+      // }
     ]
   },
 ]);

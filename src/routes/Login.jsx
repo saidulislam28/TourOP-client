@@ -42,8 +42,8 @@ const handleSocialLogin = provider => {
   provider()
   .then(result =>{
     console.log(result.user);
-    toast("successfully logged in")
-    navigate(location?.state ? location.state : "/");
+    // toast("successfully logged in")
+    // navigate(location?.state ? location.state : "/");
   })
   .catch(error =>{
     toast.error("something went wrong")
