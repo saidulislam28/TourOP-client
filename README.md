@@ -10,8 +10,13 @@ website link:
 
 
 
-  #Installation
-  *
+  # Installation Packages
+  *React-simple-typewriter
+  * React Awesome reveal
+# Authentication
+* Google
+* Email and password based
+
 
 
 
