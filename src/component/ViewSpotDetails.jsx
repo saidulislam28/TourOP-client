@@ -74,7 +74,7 @@ const ViewSpotDetails = () => {
       </div>
 
       <div className="container mx-auto flex items-center  rounded-xl">
-        <p className="bg-gray-400 px-4 py-2 rounded-xl text-white font-semibold">Description</p>
+        <p className="bg-stone-300 px-4 py-2 rounded-xl  font-semibold">Description</p>
 
         <Marquee className="bg-gray-300 rounded-r-xl">
          <span className="mr-32">{description}</span>
