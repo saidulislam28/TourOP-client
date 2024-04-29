@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { json, useLoaderData, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
+import {  toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Update = () => {
 
@@ -22,25 +24,44 @@ const handleUpdate = (e) =>{
 e.preventDefault();
 
 const  form = e.target;
+const name = form.name.value;
 const spotName = form.spotName.value;
 const countryName = form.countryName.value;
-const info  = {spotName, countryName}
-fetch(`http://localhost:5173/updateSpot/${id}`,{
+const location = form.location.value;
+const season = form.seasonality.value;
+const cost = form.cost.value;
+const travelTime = form.travelTime.value;
+const visitors = form.visitors.value;
+const image = form.image.value;
+const email = form.email.value;
+const description = form.description.value;
+const info  = {name, spotName, countryName,location,season, cost , travelTime, visitors, image, email, description}
+console.log(info);
+fetch(`http://localhost:5000/updateSpot/${id}`,{
   method:"PUT",
   headers:{
     "content-type": "application/json"
   },
   body: JSON.stringify(info)
 })
+.then(res=> res.json())
+.then(data =>{
+  if(data.modifiedCount > 0){
+    toast.success("update successful")
+  }
+})
+
 
 }
 
   return (
-    <div className="container mx-auto">
-      {/* <h1 className="text-6xl">this is update {id} </h1> */}
+    <div className="container mx-auto border rounded-xl p-4">
+      <h1 className="text-3xl text-center my-5 underline">You can update your information</h1>
+
+      <div className="divider"></div>
 
       <form onSubmit={handleUpdate}>
-        <div className=" lg:grid grid-cols-2 gap-5   space-y-5 lg:space-y-0">
+        <div className=" lg:grid grid-cols-2 gap-5   space-y-5 lg:space-y-0 mt-10">
           <div className="form-control w-full">
             <label className="label-text mb-2 font-semibold">
               Tourists Spot Name
@@ -75,6 +96,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
 
             <input
               name="location"
+              defaultValue={spot.location}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -88,6 +110,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
             <input
              
               name="seasonality"
+              defaultValue={spot.season}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -100,6 +123,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
 
             <input
               name="cost"
+              defaultValue={spot.cost}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -111,6 +135,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
 
             <input
               name="travelTime"
+              defaultValue={spot.travelTime}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -124,6 +149,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
 
             <input
               name="visitors"
+              defaultValue={spot.visitors}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -135,6 +161,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
 
             <input
               name="image"
+              defaultValue={spot.image}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -146,6 +173,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
 
             <input
               name="name"
+              defaultValue={spot.name}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -157,6 +185,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
 
             <input
               name="email"
+              defaultValue={spot.email}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -168,6 +197,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
 
             <input
               name="description"
+              defaultValue={spot.description}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full"
@@ -180,7 +210,7 @@ fetch(`http://localhost:5173/updateSpot/${id}`,{
           <input
             type="submit"
             placeholder=""
-            value="Add"
+            value="Update"
             className="input input-bordered w-full max-w-xl mx-auto btn btn-warning mt-8"
           />
         </div>

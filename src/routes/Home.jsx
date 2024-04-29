@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import SingleSpot from "../component/SingleSpot";
 import Slider from "../component/Slider";
 import Banner from "../component/Banner";
+import AllCountry from "../component/AllCountry";
 
 const Home = () => {
   const spots = useLoaderData();
@@ -11,10 +12,10 @@ const Home = () => {
   return (
     <div className="container mx-auto">
       <div>
-        <div className="block lg:relative">
+        <div className="">
           <Banner></Banner>
         </div>
-        <div className="block lg:absolute   lg:bottom-5 lg:left-20  lg p-4">
+        <div className="p-4">
           <div className="p-6 py-4 
           bg-black text-white border
           dark:bg-violet-600 dark:text-gray-50 rounded-xl">
@@ -56,12 +57,32 @@ const Home = () => {
           ))}
         </div>
       </div>
+
+
+      <div  className="mt-10 border rounded-xl p-2">
+
+      <h2
+          className=" my-16 text-2xl text-center lg:text-4xl font-serif bg-slate-300 p-8 rounded-xl"
+        >
+         Find Your Dream Country
+        </h2>
+
+
+        <AllCountry></AllCountry>
+      </div>
+
+
+
+
+
+
       <div className="mt-10 border rounded-xl p-2">
         <h2
           className="text-center text-3xl font-bold font-sans
           my-5 "
         >
           Explore some of our collection
+          <br /> what we provide to you
         </h2>
         <h6 className="text-lg text-center font-semibold opacity-50">
           Scroll bar is below the images{" "}

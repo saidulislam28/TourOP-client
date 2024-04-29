@@ -133,9 +133,11 @@ const {user, logOut} = useContext(AuthContext)
             <img alt={user.displayName} src={user.photoURL} />
           </div>
         </div>
-        <button onClick={handleLogOut} className="btn btn-primary">
-          Logout
-        </button>
+        <div className="relative overflow-hidden  rounded-xl">
+              <button onClick={handleLogOut} className="btn overflow-hidden relative  bg-[#98daf0] text-black rounded-xl font-bold uppercase -- before:block before:absolute before:h-full before:w-1/2 before:rounded-full before:bg-[#f3b200] before:top-0 before:left-1/4 before:transition-transform before:opacity-0 before:hover:opacity-100 hover:text-black hover:before:animate-ping transition-all duration-300">
+                <span className="relative">Log Out</span>
+              </button>
+            </div>
       </div> : <div className="flex items-center gap-2">
           <Link to="/register">
             <p className="btn bg-[#80669d] text-white">Register</p>

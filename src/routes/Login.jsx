@@ -36,6 +36,7 @@ const handleLogin = e =>{
   })
   .catch((error) => {
     console.log(error);
+    toast.error("something goes wrong")
    
   });
   e.target.reset();
@@ -49,7 +50,7 @@ const handleLogin = e =>{
 const handleGoogleLogin = () =>{
   signInWithPopup(auth, googleProvider)
   .then(result =>{
-    console.log(result.user);
+    
     setUser(result.user)
   })
   .catch(error=> {
