@@ -81,6 +81,7 @@ const githubProvider = new GithubAuthProvider();
 
   const authInfo = {
     user,
+    setUser,
     loading,
     registerUser,
     updateProfileInfo,

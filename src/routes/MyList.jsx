@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteSweep } from "react-icons/md";
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 const MyList = () => {
   const [loading, setLoading] = useState(true);
   const allspots = useLoaderData();
+  
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const MyList = () => {
 
   const mySpot = allspots.filter((spot) => spot.email === user.email);
 
-  console.log(mySpot);
+  // console.log(mySpot);
 
   const handleDelete = (spot) => {
     const _id = spot._id;
@@ -77,7 +78,7 @@ const MyList = () => {
               <th>Name</th>
               <th>Spot Name</th>
               <th>Cost</th>
-              <th>Update</th>
+              <th>Edit</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -90,7 +91,8 @@ const MyList = () => {
                 <td>{spot.spotName}</td>
                 <td>{spot.cost}</td>
                 <td className="text-xl">
-                  <Link to={`updateSpot/${spot._id}`}>
+                  <Link to={`/updateSpot/${spot._id}`}>
+                  {/* to={`/spot/${spot._id}`} */}
                     <button className="btn">
                       <FaEdit className="text-xl"></FaEdit>
                     </button>

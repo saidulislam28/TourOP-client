@@ -7,6 +7,11 @@ const Footer = () => {
       <p className="font-bold">
        TourOp Ltd. <br/>Providing reliable service since 1992
       </p> 
+      <p>Want to Contact with us?
+
+      </p>
+      <p>Email: <span className="font-bold">tourop@gmail.com</span> </p>
+      
       <p>Copyright © 2024 - All right reserved</p>
     </aside> 
     <nav>

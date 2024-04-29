@@ -15,6 +15,10 @@ import MyList from "./routes/MyList";
 import AuthProvider from "./provider/AuthProvider";
 import { ToastContainer } from 'react-toastify';
 import ViewSpotDetails from "./component/ViewSpotDetails";
+import Update from "./component/Update";
+import Error from "./component/Error";
+import PrivateRoutes from "./routes/PrivateRoutes";
+
 
 // import Update from "./component/Update";
 
@@ -23,6 +27,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root>,
+    errorElement:<Error></Error>,
     children:[
       {
         path:"/",
@@ -44,7 +49,9 @@ const router = createBrowserRouter([
       },
       {
         path:"/addSpot",
-        element:<Added_Spots></Added_Spots>
+        element:(<PrivateRoutes>
+          <Added_Spots></Added_Spots>
+        </PrivateRoutes>)
       },
       {
         path:"/mylist",
@@ -53,16 +60,16 @@ const router = createBrowserRouter([
       },
       {
         path:"/spot/:id",
-        element:<ViewSpotDetails></ViewSpotDetails>,
+        element:(<PrivateRoutes>
+          <ViewSpotDetails></ViewSpotDetails>
+        </PrivateRoutes>),
         loader: () => fetch('http://localhost:5000/spot')
-      }
-      
-      // {
-      //   path: "updateSpot/:id",
-      //   element: <Update></Update>,
-      //   loader: ({params}) => fetch(`http://localhost:5000/spot/${params._id}`)
+      },
+      {
+        path: "/updateSpot/:id",
+        element: <Update></Update>
         
-      // }
+      }
     ]
   },
 ]);

@@ -56,11 +56,13 @@ fetch('http://localhost:5000/spot',{
 
   return (
     <div className="container mx-auto border p-4">
-      {/* <h1 className="text-5xl text-center">
+      <h1 className=" text-xl lg:text-5xl text-center mb-10 font-serif font-semibold lg:font-bold">
        Add your places from here
-      </h1> */}
+      </h1>
+
+      <div className="divider"></div>
       <form onSubmit={handleAddPlaces}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className=" lg:grid grid-cols-2 gap-5   space-y-5 lg:space-y-0">
           <div className="form-control w-full">
             <label className="label-text mb-2 font-semibold">
               Tourists Spot Name

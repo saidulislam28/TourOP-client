@@ -1,13 +1,13 @@
 import { useLoaderData } from "react-router-dom";
-import SingleSpot from "../component/SingleSpot";
+
 import AllDataCard from "../component/AllDataCard";
 
 const Tourist_Spots = () => {
   const spots = useLoaderData();
 
   return (
-    <div className="container mx-auto">
-      <h1 className=" text-2xl text-center lg:text-6xl">this is all tourist {spots.length}</h1>
+    <div className="container mx-auto border mt-5 rounded-xl p-4">
+      <h1 className=" my-16 text-2xl text-center lg:text-4xl font-serif bg-slate-300 p-8 rounded-xl"> Discover Your Dream Destination:  Find Your <br /> Perfect Getaway Here</h1>
 
 
 

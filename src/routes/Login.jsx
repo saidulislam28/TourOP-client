@@ -4,10 +4,15 @@ import { AuthContext } from "../provider/AuthProvider";
 
 import {  toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
+import auth from "../firebase/firebase.config";
 
 const Login = () => {
+  
+  const googleProvider = new GoogleAuthProvider();
 
-  const {LogIn , user, googleLogin} = useContext(AuthContext);
+  const {LogIn , user, setUser } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -38,20 +43,23 @@ const handleLogin = e =>{
 
 
 }
-const handleSocialLogin = provider => {
-  provider()
+
+
+
+const handleGoogleLogin = () =>{
+  signInWithPopup(auth, googleProvider)
   .then(result =>{
     console.log(result.user);
-    // toast("successfully logged in")
-    // navigate(location?.state ? location.state : "/");
+    setUser(result.user)
   })
-  .catch(error =>{
-    toast.error("something went wrong")
+  .catch(error=> {
     console.log(error);
   })
-} 
+}
 
-console.log(user?.displayName);
+
+
+
 
 
   return (
@@ -106,7 +114,7 @@ console.log(user?.displayName);
           </div>
           <div className="flex justify-center space-x-4">
             <button
-            onClick={()=> handleSocialLogin(googleLogin)}
+            onClick={handleGoogleLogin}
               aria-label="Log in with Google"
               className="p-3 rounded-sm text-black"
             >
