@@ -7,7 +7,6 @@ import AllCountry from "../component/AllCountry";
 const Home = () => {
   const spots = useLoaderData();
   const slicedSpot = spots.slice(0, 6);
-  console.log(slicedSpot);
 
   return (
     <div className="container mx-auto">
@@ -51,7 +50,7 @@ const Home = () => {
           Unveil global wonders with our tourist place cards. Dive into culture,
           adventure, <br /> and natural beauty effortlessly.
         </h5>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {slicedSpot.map((spot) => (
             <SingleSpot key={spot._id} spot={spot}></SingleSpot>
           ))}

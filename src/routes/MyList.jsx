@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteSweep } from "react-icons/md";
