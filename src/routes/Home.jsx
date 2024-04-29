@@ -3,8 +3,19 @@ import SingleSpot from "../component/SingleSpot";
 import Slider from "../component/Slider";
 import Banner from "../component/Banner";
 import AllCountry from "../component/AllCountry";
+import Faq from "../component/Faq";
+import {  useTypewriter } from 'react-simple-typewriter'
 
 const Home = () => {
+
+  const [typewriter]= useTypewriter({
+    words:['for discount','use- TourOP'],
+    loop:{},
+    typeSpeed:100,
+    
+  })
+
+
   const spots = useLoaderData();
   const slicedSpot = spots.slice(0, 6);
 
@@ -27,7 +38,7 @@ const Home = () => {
                 </h2>
                 <div className="space-x-2 text-center py-2 lg:py-0 mr-4">
                   <span>Plus free shipping! Use code:</span>
-                  <span className="font-bold text-lg ">TourOp</span>
+                  <span className="font-bold text-lg "><span>{typewriter}</span></span>
                 </div>
                 <a
                   href="#"
@@ -45,6 +56,7 @@ const Home = () => {
       <div className="border rounded-xl my-10 p-4">
         <h1 className="text-4xl  mb-5 text-center font-serif ">
           Explore Exotic Destinations with Our <br /> Tourist Place Cards
+        
         </h1>
         <h5 className="text-lg font-semibold opacity-50 text-center mb-10">
           Unveil global wonders with our tourist place cards. Dive into culture,
@@ -88,7 +100,11 @@ const Home = () => {
         </h6>
 
         <Slider></Slider>
+
       </div>
+        <div className="my-10 border bg-slate-300">
+          <Faq></Faq>
+        </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Link, NavLink, Navigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./navbar/navbar.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -75,17 +75,7 @@ const Navbar = () => {
         </li>
       ) : ""}
 
-      {/* <li className="font-bold">
-        <NavLink
-          to="/userprofile"
-          style={({ isActive }) => ({
-            color: isActive ? "#fff" : "",
-            background: isActive ? "#7600dc" : "",
-          })}
-        >
-         Profile
-        </NavLink>
-      </li>  */}
+     
     </>
   );
   const handleLogOut = () => {
