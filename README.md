@@ -1,8 +1,17 @@
-# React + Vite
+# Website Name: TourOp ltd.
+website link: 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Features
+* Search and browse various tourist destinations.
+* View detailed information about each destination, including images, descriptions, and travel tips.
+* Filter destinations by country, seasonality, and average cost.
+* User authentication and account management for personalized experiences.
+* Interactive map integration to explore destinations visually.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+  #Installation
+  *
+
+
+
