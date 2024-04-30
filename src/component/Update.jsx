@@ -11,7 +11,7 @@ console.log(id);
 const [spot, setSpot] = useState({});
 
 useEffect(()=>{
-  fetch(`http://localhost:5000/spot/${id}`)
+  fetch(`https://tour-op-server.vercel.app/spot/${id}`)
   .then(res => res.json())
   .then(data =>{
     console.log(data);
@@ -37,7 +37,7 @@ const email = form.email.value;
 const description = form.description.value;
 const info  = {name, spotName, countryName,location,season, cost , travelTime, visitors, image, email, description}
 console.log(info);
-fetch(`http://localhost:5000/updateSpot/${id}`,{
+fetch(`https://tour-op-server.vercel.app/updateSpot/${id}`,{
   method:"PUT",
   headers:{
     "content-type": "application/json"

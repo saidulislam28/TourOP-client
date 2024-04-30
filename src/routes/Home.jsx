@@ -5,11 +5,18 @@ import Banner from "../component/Banner";
 import AllCountry from "../component/AllCountry";
 import Faq from "../component/Faq";
 import {  useTypewriter } from 'react-simple-typewriter'
+import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
 
   const [typewriter]= useTypewriter({
     words:['for discount','use- TourOP'],
+    loop:{},
+    typeSpeed:100,
+    
+  })
+  const [typewriter1]= useTypewriter({
+    words:['Find Your Dream Country','Find Your Dream Country'],
     loop:{},
     typeSpeed:100,
     
@@ -21,6 +28,9 @@ const Home = () => {
 
   return (
     <div className="container mx-auto">
+
+
+
       <div>
         <div className="">
           <Banner></Banner>
@@ -31,11 +41,14 @@ const Home = () => {
           dark:bg-violet-600 dark:text-gray-50 rounded-xl">
             <div className="container mx-auto">
               <div className="flex flex-col lg:flex-row items-center justify-between">
+                <Fade duration={5000}>
                 <h2 className="text-center text-4xl mr-4 tracking-tighter font-bold">
                   Up to
                   <br className="sm:hidden" />
                   50% Off
                 </h2>
+
+                </Fade>
                 <div className="space-x-2 text-center py-2 lg:py-0 mr-4">
                   <span>Plus free shipping! Use code:</span>
                   <span className="font-bold text-lg "><span>{typewriter}</span></span>
@@ -75,7 +88,7 @@ const Home = () => {
       <h2
           className=" my-16 text-2xl text-center lg:text-4xl font-serif bg-slate-300 p-8 rounded-xl"
         >
-         Find Your Dream Country
+         {typewriter1}
         </h2>
 
 

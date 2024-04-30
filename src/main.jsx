@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>,
-        loader: () => fetch('http://localhost:5000/spot')
+        loader: () => fetch('https://tour-op-server.vercel.app/spot')
       },
       {
         path:"/login",
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path:"/tourSpot",
         element:<Tourist_Spots></Tourist_Spots>,
-        loader: () => fetch('http://localhost:5000/spot')
+        loader: () => fetch('https://tour-op-server.vercel.app/spot')
       },
       {
         path:"/addSpot",
@@ -56,14 +56,14 @@ const router = createBrowserRouter([
       {
         path:"/mylist",
         element:<MyList></MyList>,
-        loader: () => fetch('http://localhost:5000/spot')
+        loader: () => fetch('https://tour-op-server.vercel.app/spot')
       },
       {
         path:"/spot/:id",
         element:(<PrivateRoutes>
           <ViewSpotDetails></ViewSpotDetails>
         </PrivateRoutes>),
-        loader: () => fetch('http://localhost:5000/spot')
+        loader: () => fetch('https://tour-op-server.vercel.app/spot')
       },
       {
         path: "/updateSpot/:id",

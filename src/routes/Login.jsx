@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import { Fade } from "react-awesome-reveal";
 
 const Login = () => {
   
@@ -52,6 +53,7 @@ const handleGoogleLogin = () =>{
   .then(result =>{
     
     setUser(result.user)
+    toast.success('log in successfully')
   })
   .catch(error=> {
     console.log(error);
@@ -64,10 +66,12 @@ const handleGoogleLogin = () =>{
 
 
   return (
+    <Fade duration={5000}>
+
     <div className="md:w-3/4 lg:w-1/2 border rounded-2xl p-2 mx-auto my-10">
       <form
         onSubmit={handleLogin}>
-        <p className="text-3xl text-center mb-4 font-bold text-primary underline">
+        <p className="text-3xl text-center mb-4 font-bold text-[#dd7973] underline">
           Please Login
         </p>
 
@@ -101,7 +105,7 @@ const handleGoogleLogin = () =>{
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn bg-[#dd7973]">Login</button>
         </div>
        
       </form>
@@ -164,6 +168,8 @@ const handleGoogleLogin = () =>{
           </Link>
         </p>
     </div>
+    </Fade>
+    
   );
 };
 

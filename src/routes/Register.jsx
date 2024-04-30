@@ -4,6 +4,7 @@ import { FaEyeSlash,FaEye } from 'react-icons/fa';
 import { AuthContext } from "../provider/AuthProvider";
 import {  toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Fade } from "react-awesome-reveal";
 
 
 
@@ -74,6 +75,8 @@ const Register = () => {
 
 
   return (
+    <Fade duration={5000}>
+
     <form
     data-aos-duration="2000"
           data-aos="slide-up"
@@ -158,6 +161,7 @@ const Register = () => {
         </Link>
       </p>
     </form>
+    </Fade>
   );
 };
 

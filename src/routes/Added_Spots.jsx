@@ -26,7 +26,7 @@ const newSpot = {name, spotName, countryName,location,season, cost , travelTime,
 
 console.log(name, spotName, countryName,location,season, cost , travelTime, visitors, image, email, description);
 
-fetch('http://localhost:5000/spot',{
+fetch('https://tour-op-server.vercel.app/spot',{
   method: 'POST',
   headers:{
     'content-type': 'application/json'
